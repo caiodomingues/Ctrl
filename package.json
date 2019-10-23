@@ -1,0 +1,14 @@
+{
+  "name": "socketio",
+  "version": "0.0.1",
+  "description": "socketio",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  }
+}

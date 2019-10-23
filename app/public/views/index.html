@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Ctrl</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+  </head>
+
+  <body class="bg-light">
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-0 shadow" id="history-card">
+            <div
+              class="card-header bg-white d-flex justify-content-between border-0"
+            >
+              <h3 class="mr-auto">History</h3>
+              <a href="#" class="btn btn-link text-muted" id="h-clear">
+                <em class="fa fa-trash ml-auto text-muted"></em>
+              </a>
+            </div>
+            <div class="card-body border-0" id="history-card-body">
+              <ul class="list-group list-group-flush" id="history">
+                <li id="h-init" class="list-group-item text-muted">
+                  <em class="fa fa-exclamation mr-4"></em>
+                  Empty
+                </li>
+              </ul>
+            </div>
+            <div
+              class="card-footer bg-white offset-md-2 border-0"
+              id="history-card-footer"
+            >
+              <form id="emitter-form" action="" class="form-inline">
+                <div class="mb-2 mx-sm-3">
+                  <input
+                    name="emitter"
+                    id="emitter"
+                    class="form-control"
+                    autocomplete="off"
+                    required
+                  />
+                  <button class="btn btn-primary">
+                    <em class="fa fa-paper-plane"></em>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card border-0 shadow" id="log-card">
+            <div
+              class="card-header bg-white d-flex justify-content-between border-0"
+            >
+              <h3 class="mr-auto">Log</h3>
+              <a href="#" class="btn btn-link text-muted" id="l-clear">
+                <em class="fa fa-trash ml-auto text-muted"></em>
+              </a>
+            </div>
+            <div class="card-body border-0" id="log-card-body">
+              <ul class="list-group list-group-flush" id="log">
+                <li id="l-init" class="list-group-item text-muted">
+                  <em class="fa fa-exclamation mr-4"></em>
+                  Empty
+                </li>
+              </ul>
+            </div>
+            <div
+              class="card-footer bg-white border-0 text-center"
+              id="log-card-footer"
+            >
+              <p class="text-muted pb-1">
+                <small>Error log can be seen in the server.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-2">
+          <div class="card shadow border-0 text-center" id="power-card">
+            <div class="card-body">
+              <a href="#" id="power-btn" class="btn stretched-link">
+                <em class="fa fa-power-off"> </em>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
