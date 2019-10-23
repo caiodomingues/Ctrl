@@ -11,8 +11,8 @@ module.exports = class Self extends Action {
         return this.process.exec("shutdown /s /f");
       case "reboot":
         return this.process.exec("shutdown /r /f");
-      case "update":
-        return this.process.exec("git pull origin master");
+      case "abort":
+        return this.process.exec("shutdown /a");
       default:
         throw new Error("Option not found or wrong typed.");
     }

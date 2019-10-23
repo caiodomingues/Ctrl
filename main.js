@@ -24,8 +24,8 @@ io.on("connection", function(socket) {
 
     try {
       programs.boot(command, parameter);
-    } catch(Error) {
-      io.emit("log", msg);
+    } catch (Error) {
+      io.emit("log", [msg, Error.toString()]);
     }
   });
 });

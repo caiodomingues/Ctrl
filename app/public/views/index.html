@@ -8,7 +8,7 @@
 
     <title>Ctrl</title>
 
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -93,11 +93,36 @@
       </div>
 
       <div class="row my-3">
+        <div class="col">
+          <div class="card border-0 shadow">
+            <div
+              class="card-header bg-white d-flex justify-content-between border-0"
+            >
+              <h3 class="mr-auto">Tasks</h3>
+            </div>
+            <div class="card-body border-0">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted">
+                  Self:update command (webhook maybe)
+                </li>
+                <li class="list-group-item text-muted">
+                  Automate task list (Simple CRUD [json one lol])
+                </li>
+                <li class="list-group-item text-muted">
+                  Improve design omg
+                </li>
+                <li class="list-group-item text-muted">
+                  Twitch command like Youtube one
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div class="col-md-2">
           <div class="card shadow border-0 text-center" id="power-card">
             <div class="card-body">
               <a href="#" id="power-btn" class="btn stretched-link">
-                <em class="fa fa-power-off"> </em>
+                <em id="power-icon" class="fa fa-power-off"> </em>
               </a>
             </div>
           </div>

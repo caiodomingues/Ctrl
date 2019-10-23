@@ -8,7 +8,9 @@
     "socket.io": "^1.7.3"
   },
   "scripts": {
-    "start": "node main.js",
-    "dev": "nodemon main.js"
+    "main": "node main.js",
+    "dev": "nodemon main.js",
+    "update": "git pull origin master",
+    "start": "npm run update && npm run main"
   }
 }
