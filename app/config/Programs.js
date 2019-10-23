@@ -1,5 +1,6 @@
 const Chrome = require("../actions/Chrome");
 const Youtube = require("../actions/Youtube");
+const Self = require("../actions/Self");
 
 module.exports = class Programs {
   chrome(args) {
@@ -11,7 +12,7 @@ module.exports = class Programs {
   }
 
   self(args) {
-    new Youtube().action(args);
+    new Self().action(args);
   }
 
   boot(program, args) {
