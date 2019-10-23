@@ -8,7 +8,7 @@ I have an old notebook with a broken screen and I barely use my TV, so I plugged
 
 Now im listening to music or watching videos in my TV :D
 
-### But why not doing Remote Access?
+### But why not doing Remote Access
 
 Because creating things is funnier :D
 
@@ -18,6 +18,8 @@ It's pretty simple, in `./config` there's a `startup.bat` file, copy this in the
 
 As i've said, i'm using it with Ex client so any person in my house have an account and specific controls.
 
+Please make sure to change the path in `startup.bat`
+
 ## Commands
 
 They're divided into two steps:
@@ -25,7 +27,8 @@ They're divided into two steps:
 `command:parameter`
 
 - `chrome:url`
-- `youtube:video-url`
+- `youtube:video-url` = or video id
+- `self:os-commands` = shutdown, reboot, abort
 
 ## Notice
 

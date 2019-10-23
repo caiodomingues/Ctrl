@@ -11,6 +11,8 @@ module.exports = class Self extends Action {
         return this.process.exec("shutdown /s /f");
       case "reboot":
         return this.process.exec("shutdown /r /f");
+      case "restart":
+        return this.process.exec("shutdown /r /f");
       case "abort":
         return this.process.exec("shutdown /a");
       default:
