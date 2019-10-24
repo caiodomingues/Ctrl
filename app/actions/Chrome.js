@@ -7,7 +7,7 @@ module.exports = class Chrome extends Action {
 
   action(args) {
     return this.process.exec(
-      `start chrome ${args} --incognito --start-maximized --disable-notifications --disable-translate`,
+      `start chrome ${args} --incognito --start-maximized --disable-notifications`,
     );
   }
 };

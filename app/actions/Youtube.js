@@ -15,7 +15,7 @@ module.exports = class Youtube extends Action {
       ? this.process.exec(
           `start chrome https://youtube.com/embed/${
             temp[7]
-          }?autoplay=1 --incognito --start-maximized --disable-notifications --disable-translate`,
+          }?autoplay=1 --incognito --start-maximized --disable-notifications`,
         )
       : false;
   }
