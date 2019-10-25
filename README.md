@@ -24,8 +24,8 @@ They're divided into two steps:
 
 - `chrome:url` = i'm using incognito mode to prevent some notifications blocking the screen.
 - `youtube:video-url` = only use this when you want to fullscreen the video (doesn't work for playlists)
+- `spotify:uri` = will open spotify with the URI (of course you should be logged in), now you can control spotify from another device using Spotify Connect
 - `self:os-commands` = shutdown, reboot (or restart), abort (or cancel)
-- `spotify:open` = will open spotify and play the desired playlist (of course you should be logged in)
 
 ## Notice
 
