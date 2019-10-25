@@ -7,6 +7,11 @@ module.exports = class Spotify extends Action {
   }
 
   genFile(name, content) {
+
+    if (!fs.existsSync('temp')){
+      fs.mkdirSync('temp');
+    }
+
     fs.writeFile(`temp/${name}`, content, function(err) {
       return err ? console.log(err) : true;
     });
