@@ -2,6 +2,7 @@ const Chrome = require("../actions/Chrome");
 const Youtube = require("../actions/Youtube");
 const Self = require("../actions/Self");
 const Kill = require("../actions/Kill");
+const Spotify = require("../actions/Spotify");
 
 module.exports = class Programs {
   chrome(args) {
@@ -20,6 +21,10 @@ module.exports = class Programs {
     new Kill().action(args);
   }
 
+  spotify(args) {
+    new Spotify().action(args);
+  }
+
   boot(program, args) {
     switch (program) {
       case "chrome":
@@ -30,6 +35,10 @@ module.exports = class Programs {
         break;
       case "self":
         this.self(args);
+        break;
+      case "spotify":
+        this.spotify(args);
+        break;
       case "kill":
         this.kill(args);
         break;

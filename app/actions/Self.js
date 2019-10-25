@@ -15,6 +15,8 @@ module.exports = class Self extends Action {
         return this.process.exec("shutdown /r /f");
       case "abort":
         return this.process.exec("shutdown /a");
+      case "cancel":
+        return this.process.exec("shutdown /a");
       default:
         throw new Error("Option not found or wrong typed.");
     }

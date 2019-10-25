@@ -1,8 +1,10 @@
+const ctrl = require("./config/app");
+
 const express = require("express");
 const app = express();
 
 const http = require("http").Server(app);
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || ctrl.port;
 
 const io = require("socket.io")(http);
 const Programs = require("./app/config/Programs");
@@ -12,7 +14,7 @@ var programs = new Programs();
 app.use(express.static("./app/public"));
 
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/app/public/views/index.html");
+  res.sendFile(`${ctrl.absolute_path}/app/public/views/index.html`);
 });
 
 io.on("connection", function(socket) {
@@ -31,5 +33,9 @@ io.on("connection", function(socket) {
 });
 
 http.listen(port, function() {
-  console.log(`Listening on localhost:${port}`);
+  console.log(
+    `Listening on ${
+      ctrl.env == "production" ? ctrl.ip + ":" + port : "localhost:" + port
+    }`,
+  );
 });

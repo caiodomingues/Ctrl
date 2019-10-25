@@ -14,11 +14,7 @@ Because creating things is funnier :D
 
 ## How to use
 
-It's pretty simple, in `./config` there's a `startup.bat` file, copy this in the startup folder of your pc, you can find the folder on a Windows by hitting `ctrl+r` and `shell:startup`.
-
-As i've said, i'm using it with Ex client so any person in my house have an account and specific controls.
-
-Please make sure to change the path in `startup.bat`
+Copy the `config/app-example.json` as `app.json` and change to your settings. In `./config` there's a `startup.bat` file, copy this in the startup folder of your pc and change the path to the project root, you can find the folder on a Windows by hitting `ctrl+r` and `shell:startup`.
 
 ## Commands
 
@@ -26,9 +22,10 @@ They're divided into two steps:
 
 `command:parameter`
 
-- `chrome:url`
-- `youtube:video-url` = or video id
-- `self:os-commands` = shutdown, reboot, abort
+- `chrome:url` = i'm using incognito mode to prevent some notifications blocking the screen.
+- `youtube:video-url` = only use this when you want to fullscreen the video (doesn't work for playlists)
+- `self:os-commands` = shutdown, reboot (or restart), abort (or cancel)
+- `spotify:open` = will open spotify and play the desired playlist (of course you should be logged in)
 
 ## Notice
 
