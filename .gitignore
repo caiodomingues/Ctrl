@@ -87,5 +87,7 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Ctrl
 notes.md
 temp/
+config/app.json
