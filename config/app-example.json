@@ -3,5 +3,7 @@
   "ip": "x.x.x.x",
   "port": 0,
   "path": "C:\\Users\\<username>",
-  "absolute_path": "C:\\Users\\<username>\\<path>\\<to>\\<ctrl>\\<folder>"
+  "absolute_path": "C:\\Users\\<username>\\<path>\\<to>\\<ctrl>\\<folder>",
+  "screen_width": 0, // pixels
+  "screen_height": 0 // pixels
 }

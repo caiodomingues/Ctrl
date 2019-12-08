@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "express": "^4.15.2",
+    "robotjs": "^0.5.1",
     "socket.io": "^1.7.3"
   },
   "scripts": {

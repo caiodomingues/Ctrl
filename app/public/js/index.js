@@ -102,22 +102,60 @@ $(function() {
 
   $("#l-clear").click(function() {
     $("#log").html(
-      "<li id='h-init' class='list-group-item text-muted'><em class='fa fa-exclamation mr-4'></em> Empty</li>",
+      "<li id='h-init' class='list-group-item text-muted'><em class='fa fa-exclamation mr-4'></em> Empty</li>"
     );
   });
 
   $("#h-clear").click(function() {
     $("#history").html(
-      "<li id='h-init' class='list-group-item text-muted'><em class='fa fa-exclamation mr-4'></em> Empty</li>",
+      "<li id='h-init' class='list-group-item text-muted'><em class='fa fa-exclamation mr-4'></em> Empty</li>"
     );
   });
 
   socket.on("history", function(msg) {
     $("#h-init").hide();
     $("#history").append(
-      $(`<li class='list-group-item text-muted'>${msg}</li>`),
+      $(`<li class='list-group-item text-muted'>${msg}</li>`)
     );
   });
+
+  socket.on("log", function(msg) {
+    $("#l-init").hide();
+    $("#log").append(
+      $(
+        `<li class='list-group-item text-muted'>
+        <em class="fa fa-times mr-4"></em> Error executing '<strong>${msg[0]}</strong>': 
+        <br> 
+        <em class="fa fa-info mr-4"></em> &nbsp; ${msg[1]}</li>`
+      )
+    );
+  });
+
+  socket.on("startup", function(msg) {
+    console.log(msg);
+    let img = new Image();
+    img.src = "data:image/jpeg;base64," + msg.i;
+    console.log(img);
+
+    let screen = $("#screen");
+    screen.width(msg.w / 2).height(msg.h / 2);
+
+    var context = document.getElementById("screen").getContext("2d");
+    context.drawImage(img, 0, 0);
+
+    screen.click(function(event) {
+      var mousePos = getMousePos(event);
+      socket.emit("mouseClick", mousePos);
+    });
+  });
+
+  function getMousePos(evt) {
+    var rect = document.getElementById("screen").getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
 
   function timer(duration, display) {
     var timer = duration,
@@ -137,18 +175,4 @@ $(function() {
       }
     }, 1000);
   }
-
-  socket.on("log", function(msg) {
-    $("#l-init").hide();
-    $("#log").append(
-      $(
-        `<li class='list-group-item text-muted'>
-        <em class="fa fa-times mr-4"></em> Error executing '<strong>${
-          msg[0]
-        }</strong>': 
-        <br> 
-        <em class="fa fa-info mr-4"></em> &nbsp; ${msg[1]}</li>`,
-      ),
-    );
-  });
 });
