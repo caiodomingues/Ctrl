@@ -1,5 +1,5 @@
 const ctrl = require("./config/app");
-var Jimp = require('jimp');
+var Jimp = require("jimp");
 
 const express = require("express");
 const app = express();
@@ -21,22 +21,9 @@ app.get("/", function(req, res) {
 });
 
 io.on("connection", function(socket) {
-  let picture = robot.screen.capture();
-  console.log(picture.width,picture.height)
-  var image = new Jimp(picture.width, picture.height, function(err, img) {
-      img.bitmap.data = picture.image;
-      img.getBuffer(Jimp.MIME_PNG, (err, png) => {
-          let base64 = new Buffer(png).toString('base64');
-          io.emit("startup", {
-            w: ctrl.screen_width,
-            h: ctrl.screen_height,
-            i: base64
-          });
-      });
-  });
-  
-
-  
+  setInterval(function() {
+    io.emit("screen", getScreen());
+  }, 1000);
 
   socket.on("data", function(msg) {
     io.emit("history", msg);
@@ -69,6 +56,21 @@ io.on("connection", function(socket) {
     robot.mouseClick();
   });
 });
+
+function getScreen() {
+  let picture = robot.screen.capture();
+  var image = new Jimp(picture.width, picture.height, function(err, img) {
+    img.bitmap.data = picture.image;
+    img.getBuffer(Jimp.MIME_PNG, (err, png) => {
+      let base64 = new Buffer(png).toString("base64");
+      io.emit("startup", {
+        w: ctrl.screen_width,
+        h: ctrl.screen_height,
+        i: base64
+      });
+    });
+  });
+}
 
 http.listen(port, function() {
   console.log(
