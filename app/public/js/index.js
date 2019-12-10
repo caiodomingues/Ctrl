@@ -145,10 +145,14 @@ $(function() {
     });
 
     screen.mouseover(function(event) {
-      while(true) {
+      var timer = setInterval(function() {
         var mousePos = getMousePos(event);
         socket.emit("mouseMove", mousePos);
-      }
+      }, 500);
+
+      $(this).mouseleave(function() {
+        clearInterval(timer);
+      });
     });
   });
 
