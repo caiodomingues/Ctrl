@@ -132,20 +132,21 @@ $(function() {
   });
 
   socket.on("startup", function(msg) {
-    console.log(msg);
-    let img = new Image();
-    img.src = "data:image/jpeg;base64," + msg.i;
-    console.log(img);
-
     let screen = $("#screen");
     screen.width(msg.w / 2).height(msg.h / 2);
 
     var context = document.getElementById("screen").getContext("2d");
-    context.drawImage(img, 0, 0);
+    context.fillStyle = "grey";
+    context.fillRect(0, 0, screen.width(), screen.height());
 
     screen.click(function(event) {
       var mousePos = getMousePos(event);
       socket.emit("mouseClick", mousePos);
+    });
+
+    screen.mouseover(function(event) {
+      var mousePos = getMousePos(event);
+      socket.emit("mouseMove", mousePos);
     });
   });
 

@@ -43,13 +43,11 @@ io.on("connection", function(socket) {
     }
   });
 
-  socket.on("mouseClick", function(msg) {
-    var screen = {
-      posX: msg.x * 2,
-      posY: msg.y * 2
-    };
+  socket.on("mouseMove", function(msg) {
+    robot.moveMouse(msg.x * 2, msg.y * 2);
+  });
 
-    robot.moveMouse(screen.posX, screen.posY);
+  socket.on("mouseClick", function(msg) {
     robot.mouseClick();
   });
 });
