@@ -44,7 +44,13 @@ io.on("connection", function(socket) {
   });
 
   socket.on("keyboard", function(msg) {
-    robot.typeString(msg);
+    switch (msg) {
+      case "enter":
+        robot.keyTap("enter");
+        break;
+      default:
+        robot.typeString(msg);
+    }
   });
 
   socket.on("mouseMove", function(msg) {
