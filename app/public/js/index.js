@@ -148,7 +148,7 @@ $(function() {
       var timer = setInterval(function() {
         var mousePos = getMousePos(event);
         socket.emit("mouseMove", mousePos);
-      }, 500);
+      }, 100);
 
       $(this).mouseleave(function() {
         clearInterval(timer);
