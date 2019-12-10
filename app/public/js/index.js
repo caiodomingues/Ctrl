@@ -36,6 +36,16 @@ $(function() {
     return false;
   });
 
+  $("#keyboard-form").submit(function(e) {
+    e.preventDefault();
+
+    if ($("#keyboard").val() != "")
+      socket.emit("keyboard", $("#keyboard").val());
+
+    $("#keyboard").val("");
+    return false;
+  });
+
   let swt = 0;
   $("#power-btn").click(function() {
     if (swt) {

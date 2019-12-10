@@ -43,6 +43,10 @@ io.on("connection", function(socket) {
     }
   });
 
+  socket.on("keyboard", function(msg) {
+    robot.typeString(msg);
+  });
+
   socket.on("mouseMove", function(msg) {
     robot.moveMouse(msg.x * 2, msg.y * 2);
   });

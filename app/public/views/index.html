@@ -101,7 +101,25 @@
               <h3 class="mr-auto">Screen</h3>
             </div>
             <div class="card-body border-0">
-              <canvas id="screen" class="border shadow"></canvas>
+              <div class="col">
+                <canvas id="screen" class="border shadow"></canvas>
+              </div>
+              <div class="col">
+                  <form id="keyboard-form" action="" class="form-inline">
+                      <div class="mb-2 mx-sm-3">
+                        <input
+                          name="keyboard"
+                          id="keyboard"
+                          class="form-control"
+                          autocomplete="off"
+                          required
+                        />
+                        <button class="btn btn-primary">
+                          <em class="fa fa-paper-plane"></em>
+                        </button>
+                      </div>
+                    </form>
+              </div>
             </div>
           </div>
         </div>
