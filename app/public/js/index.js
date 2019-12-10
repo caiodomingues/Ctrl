@@ -145,8 +145,10 @@ $(function() {
     });
 
     screen.mouseover(function(event) {
-      var mousePos = getMousePos(event);
-      socket.emit("mouseMove", mousePos);
+      while(true) {
+        var mousePos = getMousePos(event);
+        socket.emit("mouseMove", mousePos);
+      }
     });
   });
 
