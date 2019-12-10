@@ -1,4 +1,5 @@
 const ctrl = require("./config/app");
+var Jimp = require('jimp');
 
 const express = require("express");
 const app = express();
@@ -20,15 +21,22 @@ app.get("/", function(req, res) {
 });
 
 io.on("connection", function(socket) {
-  let img = robot.screen.capture();
-  let buffer = Buffer.from(img.image);
-  let base64 = buffer.toString("base64");
-
-  io.emit("startup", {
-    w: ctrl.screen_width,
-    h: ctrl.screen_height,
-    i: base64
+  let picture = robot.screen.capture();
+  console.log(picture.width,picture.height)
+  var image = new Jimp(picture.width, picture.height, function(err, img) {
+      img.bitmap.data = picture.image;
+      img.getBuffer(Jimp.MIME_PNG, (err, png) => {
+          let base64 = new Buffer(png).toString('base64');
+          io.emit("startup", {
+            w: ctrl.screen_width,
+            h: ctrl.screen_height,
+            i: base64
+          });
+      });
   });
+  
+
+  
 
   socket.on("data", function(msg) {
     io.emit("history", msg);

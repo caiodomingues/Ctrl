@@ -147,12 +147,36 @@ $(function() {
   });
 
   socket.on("startup", function(msg) {
+      $('#mmd').attr('src',)
     let screen = $("#screen");
     screen.width(msg.w / 2).height(msg.h / 2);
 
-    var context = document.getElementById("screen").getContext("2d");
-    context.fillStyle = "grey";
-    context.fillRect(0, 0, screen.width(), screen.height());
+    var canvas = document.getElementById("screen");
+    var ctx = canvas.getContext("2d");
+    var img = new Image();
+      img.onload = function () {
+        canvas.height = canvas.width * (img.height / img.width);
+
+        // step 1 - resize to 50%
+        var oc = document.createElement('canvas'),
+            octx = oc.getContext('2d');
+
+        oc.width = img.width * 0.5;
+        oc.height = img.height * 0.5;
+        octx.drawImage(img, 0, 0, oc.width, oc.height);
+
+        // step 2
+        octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
+
+        // step 3, resize to final size
+        ctx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,
+        0, 0, canvas.width, canvas.height);
+    }
+    img.src = `data:image/png;base64,${msg.i}`;
+    //context.fillStyle = "grey";
+    //context.fillRect(0, 0, screen.width(), screen.height());
+    //context.drawImage(image, screen.width(), screen.height());
+    
 
     screen.click(function(event) {
       var mousePos = getMousePos(event);
