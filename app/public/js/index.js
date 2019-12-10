@@ -46,6 +46,11 @@ $(function() {
     return false;
   });
 
+  $("#enter").click(function(){
+    e.preventDefault();
+    socket.emit("keyboard", "enter");
+  });
+
   let swt = 0;
   $("#power-btn").click(function() {
     if (swt) {
