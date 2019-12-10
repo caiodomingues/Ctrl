@@ -23,7 +23,7 @@ app.get("/", function(req, res) {
 io.on("connection", function(socket) {
   setInterval(function() {
     io.emit("screen", getScreen());
-  }, 1000);
+  }, ctrl.screen_refresh_rate);
 
   socket.on("data", function(msg) {
     io.emit("history", msg);
