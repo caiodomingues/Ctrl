@@ -144,15 +144,9 @@ $(function() {
       socket.emit("mouseClick", mousePos);
     });
 
-    screen.mouseover(function(event) {
-      var timer = setInterval(function() {
-        var mousePos = getMousePos(event);
-        socket.emit("mouseMove", mousePos);
-      }, 100);
-
-      $(this).mouseleave(function() {
-        clearInterval(timer);
-      });
+    screen.mousemove(function(event) {
+      var mousePos = getMousePos(event);
+      socket.emit("mouseMove", mousePos);
     });
   });
 
